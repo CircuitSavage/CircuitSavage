@@ -1,0 +1,98 @@
+name: Generate metrics
+
+# Renders a self-hosted profile dashboard (stats, languages, achievements,
+# repositories, activity heatmap) via lowlighter/metrics. Output is a single
+# SVG committed to the `output` branch, which the README's <img> tag reads
+# from. No dependency on github-readme-stats.vercel.app — that public
+# deployment has been paused; ours runs in your own Actions minutes.
+#
+# Runs daily at 00:30 UTC (30 min after snake so they don't clash on the
+# `output` branch) and on every push to main.
+
+on:
+  schedule:
+    - cron: "30 0 * * *"
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: metrics
+  cancel-in-progress: true
+
+jobs:
+  metrics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Render metrics SVG
+        uses: lowlighter/metrics@latest
+        with:
+          # ───────────── auth ─────────────
+          # GITHUB_TOKEN gets you public stats. To include private commits
+          # and richer achievements, create a PAT with `public_repo`,
+          # `read:user`, `read:org` and save it as a repo secret named
+          # METRICS_TOKEN, then replace the line below.
+          token: ${{ secrets.GITHUB_TOKEN }}
+          user: CircuitSavage
+
+          # ──────────── output ────────────
+          filename: metrics.svg
+          committer_branch: output
+          committer_message: "auto: refresh metrics dashboard"
+
+          # ─────────── template ───────────
+          template: classic
+          base: header, activity, community, repositories, metadata
+          base_indepth: yes
+          config_timezone: Europe/Amsterdam
+          config_animations: yes
+          config_padding: 6
+
+          # ─────────── plugins ────────────
+          plugin_languages: yes
+          plugin_languages_details: bytes-size, percentage
+          plugin_languages_limit: 8
+          plugin_languages_threshold: 1%
+          plugin_languages_sections: most-used
+
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
+
+          plugin_achievements: yes
+          plugin_achievements_threshold: C
+          plugin_achievements_secrets: yes
+          plugin_achievements_display: detailed
+          plugin_achievements_limit: 0
+
+          plugin_topics: yes
+          plugin_topics_mode: icons
+          plugin_topics_limit: 15
+
+          plugin_lines: yes
+          plugin_lines_sections: base
+          plugin_lines_repositories_limit: 4
+
+          plugin_followup: yes
+
+          # ──────── inferno retheme ───────
+          extras_css: |
+            :root {
+              --color-foreground: #F5E6D3;
+              --color-text:       #F5E6D3;
+              --color-background: #0D0D0D;
+              --color-highlight:  #FF5E1A;
+              --color-link:       #FFD60A;
+              --color-calendar-graph-day-bg:    #161B22;
+              --color-calendar-graph-day-L1-bg: #3A1C0A;
+              --color-calendar-graph-day-L2-bg: #7A2E0A;
+              --color-calendar-graph-day-L3-bg: #FF5E1A;
+              --color-calendar-graph-day-L4-bg: #C1121F;
+            }
+            svg, .header { background: #0D0D0D !important; }
+            text { fill: #F5E6D3 !important; }
+            .title, h2 { fill: #FF5E1A !important; color: #FF5E1A !important; }
+            .highlight, .accent { fill: #FFD60A !important; }

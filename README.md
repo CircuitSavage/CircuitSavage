@@ -12,7 +12,7 @@
 
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=24&duration=2800&pause=600&color=FF5E1A&center=true&vCenter=true&multiline=false&width=720&height=60&lines=Reversing+the+bundles+you+weren%27t+supposed+to+read.;hCaptcha+%E2%80%A2+DataDome+%E2%80%A2+Turnstile+%E2%80%A2+AWS+WAF;Byte-accurate+emulators+%E2%80%A2+never+patched+bundles.;Building+the+anti-bot+layer+at+peak.fo)](https://t.me/jujucodings)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=22&duration=2800&pause=600&color=FF5E1A&center=true&vCenter=true&multiline=false&width=900&height=60&lines=Reversing+the+bundles+you+weren%27t+supposed+to+read.;hCaptcha+%E2%80%A2+DataDome+%E2%80%A2+Turnstile+%E2%80%A2+AWS+WAF;Byte-accurate+emulators+%E2%80%A2+never+patched+bundles.;Building+the+anti-bot+layer+at+peak.fo)](https://t.me/jujucodings)
 
 </div>
 
@@ -101,7 +101,8 @@
 <br/>
 
 <!-- ╔══════════════════════════════════════════════════════════════════════╗
-     ║  STATS — github-readme-stats + top langs, side by side, Inferno hex   ║
+     ║  STATS — self-hosted metrics dashboard + streak card                  ║
+     ║  metrics.svg is regenerated daily by .github/workflows/metrics.yml    ║
      ╚══════════════════════════════════════════════════════════════════════╝ -->
 
 <h2 align="center">
@@ -110,13 +111,12 @@
 
 <div align="center">
 
-<img height="180" alt="GitHub Stats" src="https://github-readme-stats.vercel.app/api?username=CircuitSavage&show_icons=true&hide_border=true&title_color=FF5E1A&icon_color=FFD60A&text_color=F5E6D3&bg_color=0D0D0D&include_all_commits=true&count_private=true&ring_color=C1121F"/>
-<img height="180" alt="Top Languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=CircuitSavage&layout=compact&hide_border=true&title_color=FF5E1A&text_color=F5E6D3&bg_color=0D0D0D&langs_count=8"/>
-
-<br/>
-<br/>
-
 <img alt="Streak Stats" src="https://streak-stats.demolab.com?user=CircuitSavage&theme=dark&hide_border=true&background=0D0D0D&stroke=FF5E1A&ring=FFD60A&fire=FF5E1A&currStreakLabel=FFD60A&currStreakNum=F5E6D3&sideLabels=F5E6D3&sideNums=F5E6D3&dates=C1121F"/>
+
+<br/>
+<br/>
+
+<img alt="Metrics" src="https://raw.githubusercontent.com/CircuitSavage/CircuitSavage/output/metrics.svg"/>
 
 </div>
 
@@ -159,23 +159,7 @@
 <br/>
 
 <!-- ╔══════════════════════════════════════════════════════════════════════╗
-     ║  TROPHIES — ryo-ma/github-profile-trophy, no-frame so it floats        ║
-     ╚══════════════════════════════════════════════════════════════════════╝ -->
-
-<h2 align="center">
-  <img src="https://img.shields.io/badge/-TROPHIES-FF5E1A?style=for-the-badge&labelColor=0D0D0D" alt="trophies"/>
-</h2>
-
-<div align="center">
-
-<img alt="Trophies" src="https://github-profile-trophy.vercel.app/?username=CircuitSavage&theme=onestar&no-frame=true&no-bg=true&margin-w=10&margin-h=10&column=7&title=Commits,Followers,Stars,Repositories,PullRequest,Issues,MultipleLang"/>
-
-</div>
-
-<br/>
-
-<!-- ╔══════════════════════════════════════════════════════════════════════╗
-     ║  FEATURED — pinned repo cards rendered via github-readme-stats        ║
+     ║  FEATURED — pinned repo card (linked, image-free since vercel paused) ║
      ╚══════════════════════════════════════════════════════════════════════╝ -->
 
 <h2 align="center">
@@ -185,7 +169,11 @@
 <div align="center">
 
 <a href="https://github.com/CircuitSavage/hcaptcha-hsj-hsw-reversed">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=CircuitSavage&repo=hcaptcha-hsj-hsw-reversed&hide_border=true&title_color=FF5E1A&icon_color=FFD60A&text_color=F5E6D3&bg_color=0D0D0D" alt="hcaptcha"/>
+  <img src="https://img.shields.io/badge/hcaptcha--hsj--hsw--reversed-byte_accurate_AES_256_GCM_keys-FF5E1A?style=for-the-badge&logo=github&logoColor=FFD60A&labelColor=0D0D0D" alt="hcaptcha"/>
+</a>
+&nbsp;
+<a href="https://peak.fo">
+  <img src="https://img.shields.io/badge/peak.fo-Cloudflare_%2F_DataDome_%2F_AWS_WAF-C1121F?style=for-the-badge&logo=cloudflare&logoColor=FFD60A&labelColor=0D0D0D" alt="peak.fo"/>
 </a>
 
 </div>
