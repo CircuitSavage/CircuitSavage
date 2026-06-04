@@ -1,0 +1,47 @@
+name: Generate snake animation
+
+# Re-renders the snake-eats-contributions SVG every day at 00:00 UTC
+# (so the snake follows your real contribution graph) and on every
+# push to main. Output is committed to the `output` branch, which is
+# what the README's <img> tags read from.
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: snake
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Render snake SVGs
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: CircuitSavage
+          # Three variants written to dist/:
+          #   - snake.svg          → default palette (for light mode fallback)
+          #   - snake-dark.svg     → GitHub dark palette
+          #   - snake-inferno.svg  → custom Inferno palette (ember snake on dark grid,
+          #                          contribution intensity ramps black → crimson → ember → gold)
+          outputs: |
+            dist/snake.svg
+            dist/snake-dark.svg?palette=github-dark
+            dist/snake-inferno.svg?color_snake=%23FFD60A&color_dots=%23161B22,%233A1C0A,%237A2E0A,%23FF5E1A,%23C1121F
+
+      - name: Push to `output` branch
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
